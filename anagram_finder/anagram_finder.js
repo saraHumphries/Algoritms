@@ -1,12 +1,20 @@
 const AnagramFinder = function (word) {
-    this.word = word.split('');
+    this.word = word.toLowerCase().split('');
 
 };
 
 AnagramFinder.prototype.findAnagrams = function (otherWords) {
     
+    const lowerCaseOtherWords = [];
+    for (const word of otherWords) {
+        lowerCaseOtherWords.push(word.toLowerCase());
+    };
+
+    // console.log("otherWords: ", otherWords);
+    // console.log("lowerCaseOtherWords: ", lowerCaseOtherWords);
+
     const wordCompare = {};
-    for (word of otherWords) {
+    for (const word of lowerCaseOtherWords) {
         const splitWord = word.split('');
         wordCompare[word] = [];
         for (letter of splitWord) {
@@ -20,9 +28,9 @@ AnagramFinder.prototype.findAnagrams = function (otherWords) {
     };
     
     const anagrams = [];
-    for (word of otherWords) {
+    for (const word of otherWords) {
 
-        const result = wordCompare[word].every((letterBool) => {
+        const result = wordCompare[word.toLowerCase()].every((letterBool) => {
             return letterBool;  
         });
         if (result && this.word.length === word.length) {
