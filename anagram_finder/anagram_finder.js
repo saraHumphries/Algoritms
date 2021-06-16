@@ -25,7 +25,7 @@ AnagramFinder.prototype.findAnagrams = function (otherWords) {
         const result = wordCompare[word].every((letterBool) => {
             return letterBool;  
         });
-        if (result) {
+        if (result && this.word.length === word.length) {
             anagrams.push(word);
         };        
     };
