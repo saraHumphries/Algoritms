@@ -4,6 +4,17 @@ const IsogramFinder = function (word) {
 };
 
 IsogramFinder.prototype.isIsogram = function () {
+    
+    noRepeatedLetters = this.countLetters().every((value) => {
+        return value === 1;
+    });
+
+    return noRepeatedLetters;
+};
+
+
+
+IsogramFinder.prototype.countLetters = function () {
     const letterCounter = {};
     for (letter of this.word) {
         if (letterCounter[letter]) {
@@ -13,13 +24,9 @@ IsogramFinder.prototype.isIsogram = function () {
             letterCounter[letter] = 1;
         };
     };
-    for (value of Object.values(letterCounter)) {
-        if (value > 1) {
-            return false;
-        };
 
-    };
-    return true;
+    const values = Object.values(letterCounter);
+    return values;
 };
 
 module.exports = IsogramFinder;
