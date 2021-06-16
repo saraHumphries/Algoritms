@@ -17,7 +17,7 @@ describe('AnagramFinder', function () {
     assert.deepStrictEqual(anagramFinder.findAnagrams(['dog']), []);
   });
 
-  xit('should not detect words with too many letters as an anagram', function () {
+  it('should not detect words with too many letters as an anagram', function () {
     const anagramFinder = new AnagramFinder('dog');
     assert.deepStrictEqual(anagramFinder.findAnagrams(['good']), []);
   });
