@@ -4,6 +4,7 @@ const AnagramFinder = function (word) {
 };
 
 AnagramFinder.prototype.findAnagrams = function (otherWords) {
+
     
     const lowerCaseOtherWords = [];
     for (const word of otherWords) {
@@ -33,10 +34,12 @@ AnagramFinder.prototype.findAnagrams = function (otherWords) {
         const result = wordCompare[word.toLowerCase()].every((letterBool) => {
             return letterBool;  
         });
-        if (result && this.word.length === word.length) {
+        if (result && this.word.length === word.length && this.word.join('') !== word) {
             anagrams.push(word);
-        };        
+        };       
+         
     };
+    
     return anagrams;
 
 
