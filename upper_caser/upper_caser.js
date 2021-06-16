@@ -3,10 +3,10 @@ const UpperCaser = function (words) {
 };
 
 UpperCaser.prototype.toUpperCase = function () {
-    const upperCaseWords = [];
-    for (word of this.words) {
-        upperCaseWords.push(word.toUpperCase()); 
-    };
+    
+    const upperCaseWords = this.words.map((word) => {
+        return word.toUpperCase();
+    });
     return upperCaseWords;
 
 };
