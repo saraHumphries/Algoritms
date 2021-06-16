@@ -6,13 +6,7 @@ const AnagramFinder = function (word) {
 AnagramFinder.prototype.findAnagrams = function (otherWords) {
 
     
-    const lowerCaseOtherWords = [];
-    for (const word of otherWords) {
-        lowerCaseOtherWords.push(word.toLowerCase());
-    };
-
-    // console.log("otherWords: ", otherWords);
-    // console.log("lowerCaseOtherWords: ", lowerCaseOtherWords);
+    const lowerCaseOtherWords = otherWords.map(word => word.toLowerCase()); 
 
     const wordCompare = {};
     for (const word of lowerCaseOtherWords) {
